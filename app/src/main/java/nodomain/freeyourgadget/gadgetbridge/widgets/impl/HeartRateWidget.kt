@@ -262,7 +262,7 @@ object HeartRateWidget : MetricWidget<HeartRateWidget.Data>() {
     /**
      * The device's resting heart rate for the day, if it reports one.
      */
-    private suspend fun deviceResting(scope: WidgetDataScope): Int? = try {
+    suspend fun deviceResting(scope: WidgetDataScope): Int? = try {
         scope.db { db ->
             scope.devices.filter { it.deviceCoordinator.supportsHeartRateRestingMeasurement(it) }
                 .flatMap { dev ->

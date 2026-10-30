@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Own provider authority: it must not collide with the F-Droid build installed next to this one -->
+    <string translatable="false" name="pebble_content_provider">com.getpebble.android.aurora.provider</string>
+    <string translatable="false" name="app_name">Aurora</string>
+    <string translatable="false" name="title_activity_controlcenter">Aurora</string>
+</resources>

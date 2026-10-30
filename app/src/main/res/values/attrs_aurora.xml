@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Per-theme surfaces of the main screen and the device card -->
+    <attr name="aurora_nav_bg" format="reference" />
+    <attr name="aurora_hero_bg" format="reference" />
+    <attr name="aurora_action_bg" format="reference" />
+    <attr name="aurora_chip_bg" format="reference" />
+
+    <!-- Per-theme accents of the three rings on the device card: steps, distance, sleep -->
+    <attr name="gauge_accent_a" format="color" />
+    <attr name="gauge_accent_b" format="color" />
+    <attr name="gauge_accent_c" format="color" />
+</resources>

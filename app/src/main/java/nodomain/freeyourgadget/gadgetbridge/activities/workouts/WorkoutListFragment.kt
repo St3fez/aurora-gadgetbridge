@@ -37,6 +37,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import nodomain.freeyourgadget.gadgetbridge.GBApplication
+import nodomain.freeyourgadget.gadgetbridge.workouts.WorkoutDetector
 import nodomain.freeyourgadget.gadgetbridge.R
 import nodomain.freeyourgadget.gadgetbridge.activities.ActivitySummariesFilter
 import nodomain.freeyourgadget.gadgetbridge.activities.workouts.statistics.WorkoutStatisticsActivity
@@ -283,6 +284,17 @@ class WorkoutListFragment : Fragment() {
             }
         }
 
+        workoutSummariesAdapter.onInsightOpen = { summaryId ->
+            val position = (1 until workoutSummariesAdapter.itemCount).firstOrNull {
+                workoutSummariesAdapter.getItem(it)?.id == summaryId
+            }
+            if (position != null) showActivityDetail(position - 1)
+        }
+        workoutSummariesAdapter.onInsightThreshold = { minutes ->
+            WorkoutDetector.setMinMinutes(minutes)
+            refresh(silent = true)
+        }
+
         recycler.adapter = workoutSummariesAdapter
         summariesAdapter = workoutSummariesAdapter
 
@@ -330,6 +342,11 @@ class WorkoutListFragment : Fragment() {
 
         viewModel.isDashboardLoading.observe(viewLifecycleOwner) { isLoading ->
             summariesAdapter?.isDashboardLoading = isLoading
+            summariesAdapter?.notifyItemChanged(0)
+        }
+
+        viewModel.insights.observe(viewLifecycleOwner) { insights ->
+            summariesAdapter?.insights = insights
             summariesAdapter?.notifyItemChanged(0)
         }
 

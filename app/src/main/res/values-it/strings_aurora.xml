@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="themes_title">Temi</string>
+    <string name="themes_summary">Aurora, Neon Pulse</string>
+    <string name="themes_intro">Scegli l\'aspetto di tutta l\'app. Il cambio è immediato.</string>
+    <string name="theme_aurora_name">Aurora</string>
+    <string name="theme_aurora_desc">Vetro smerigliato su luci viola, ciano e rosa in lento movimento.</string>
+    <string name="theme_neon_name">Neon Pulse</string>
+    <string name="theme_neon_desc">Nero puro, numeri grandi e un solo accento lime elettrico.</string>
+    <string name="theme_active">In uso</string>
+
+    <string name="widget_live_hr_title">Battito in diretta</string>
+    <string name="widget_variant_live">Diretta</string>
+    <string name="live_hr_live">LIVE</string>
+    <string name="live_hr_waiting">ATTESA</string>
+    <string name="live_hr_waiting_hint">In attesa del primo battito…</string>
+    <string name="live_hr_no_band">Band non connessa</string>
+    <string name="live_hr_percent_max">%1$d%% del massimo</string>
+    <string name="live_hr_zone_0">Riposo</string>
+    <string name="live_hr_zone_1">Riscaldamento</string>
+    <string name="live_hr_zone_2">Brucia grassi</string>
+    <string name="live_hr_zone_3">Aerobica</string>
+    <string name="live_hr_zone_4">Anaerobica</string>
+    <string name="live_hr_zone_5">Massimo</string>
+    <string name="live_hr_average">Media</string>
+    <string name="live_hr_trimp">Carico</string>
+    <string name="live_hr_vo2">VO2max</string>
+
+</resources>

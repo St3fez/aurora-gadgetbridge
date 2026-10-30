@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="workouts_last_title">Latest workout</string>
+    <string name="workouts_auto_tag">Found in your data</string>
+    <string name="workouts_stat_avg_hr">Avg HR</string>
+    <string name="workouts_stat_max_hr">Max HR</string>
+    <string name="workouts_stat_steps">Steps</string>
+    <string name="workouts_stat_load">Load</string>
+    <string name="workouts_none_title">No workout of at least %1$d minutes</string>
+    <string name="workouts_none_hint">It appears here by itself as soon as you do one. Data you already synced is searched too: lower the minimum to see shorter efforts.</string>
+    <string name="workouts_footer">Updates itself after every sync.</string>
+    <string name="workouts_threshold">Minimum length</string>
+    <string name="workouts_threshold_value">%1$d min</string>
+    <string name="workouts_zones_title">Time in each heart rate zone</string>
+    <string name="workouts_14_days">Last 14 days</string>
+    <string name="workouts_14_summary">%1$d workouts · %2$d min</string>
+    <string name="workouts_table_title">Recent workouts</string>
+    <string name="workouts_col_date">Day</string>
+    <string name="workouts_col_type">Type</string>
+    <string name="workouts_col_duration">Time</string>
+    <string name="workouts_col_hr">HR</string>
+    <string name="workouts_col_max">Max</string>
+    <string name="workouts_col_steps">Steps</string>
+</resources>

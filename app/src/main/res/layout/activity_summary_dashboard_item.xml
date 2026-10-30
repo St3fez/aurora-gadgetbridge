@@ -4,10 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <!-- The latest workout, the last two weeks and the table: WorkoutInsightsView, added by the adapter. -->
+    <FrameLayout
+        android:id="@+id/summary_dashboard_insights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <FrameLayout
         android:id="@+id/summary_dashboard_layout_outer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/summary_dashboard_insights">
 
         <!-- Filled in by WorkoutSummariesAdapter.DashboardViewHolder: title, meta and totals. -->
         <LinearLayout

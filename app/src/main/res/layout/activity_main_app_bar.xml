@@ -58,14 +58,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav_bar" />
 
+    <!-- Glass pill behind the bottom navigation: BottomNavigationView does not keep a custom
+         background, so it is drawn by this view and follows the navigation's visibility -->
+    <View
+        android:id="@+id/bottom_nav_pill"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/aurora_nav_bg"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_nav_bar"
+        app:layout_constraintEnd_toEndOf="@id/bottom_nav_bar"
+        app:layout_constraintStart_toStartOf="@id/bottom_nav_bar"
+        app:layout_constraintTop_toTopOf="@id/bottom_nav_bar" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?attr/main_bar_bg"
-        android:foreground="?attr/bottom_bar_divider"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:color/transparent"
         app:itemTextColor="?android:attr/textColorPrimary"
         app:layout_constraintBottom_toBottomOf="parent" />
 

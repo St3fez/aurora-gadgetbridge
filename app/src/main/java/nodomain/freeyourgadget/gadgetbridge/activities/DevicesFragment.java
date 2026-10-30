@@ -130,6 +130,17 @@ public class DevicesFragment extends Fragment implements HeaderShadePage {
 
         deviceListView.setAdapter(this.mGBDeviceAdapter);
 
+        // The cards are translucent, so the empty-state picture must only show when there are no devices
+        final View noItemsBackground = currentView.findViewById(R.id.no_items_bg);
+        final RecyclerView.AdapterDataObserver noItemsObserver = new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onChanged() {
+                noItemsBackground.setVisibility(mGBDeviceAdapter.getItemCount() == 0 ? View.VISIBLE : View.GONE);
+            }
+        };
+        mGBDeviceAdapter.registerAdapterDataObserver(noItemsObserver);
+        noItemsObserver.onChanged();
+
         // get activity data asynchronously, this fills the deviceActivityHashMap
         // and calls refreshPairedDevices() → notifyDataSetChanged
         deviceListView.post(new Runnable() {

@@ -87,56 +87,17 @@ public abstract class AbstractGBActivity extends AppCompatActivity implements GB
 
     @StyleRes
     public static int getThemeResource(final int flags, final boolean dark) {
-        if (GBApplication.areDynamicColorsEnabled()) {
-            if (dark) {
-                if ((flags & NO_ACTIONBAR) != 0) {
-                    if (GBApplication.isAmoledBlackEnabled())
-                        return R.style.GadgetbridgeThemeDynamicDarkAmoled_NoActionBar;
-                    else
-                        return R.style.GadgetbridgeThemeDynamicDark_NoActionBar;
-                } else {
-                    if (GBApplication.isAmoledBlackEnabled())
-                        return R.style.GadgetbridgeThemeDynamicDarkAmoled;
-                    else
-                        return R.style.GadgetbridgeThemeDynamicDark;
-                }
-            } else {
-                if ((flags & NO_ACTIONBAR) != 0) {
-                    return R.style.GadgetbridgeThemeDynamicLight_NoActionBar;
-                } else {
-                    return R.style.GadgetbridgeThemeDynamicLight;
-                }
-            }
-        } else if (dark) {
-            if ((flags & NO_ACTIONBAR) != 0) {
-                if (GBApplication.isAmoledBlackEnabled())
-                    return R.style.GadgetbridgeThemeBlack_NoActionBar;
-                else
-                    return R.style.GadgetbridgeThemeDark_NoActionBar;
-            } else {
-                if (GBApplication.isAmoledBlackEnabled())
-                    return R.style.GadgetbridgeThemeBlack;
-                else
-                    return R.style.GadgetbridgeThemeDark;
-            }
-        } else {
-            if ((flags & NO_ACTIONBAR) != 0) {
-                return R.style.GadgetbridgeTheme_NoActionBar;
-            } else {
-                return R.style.GadgetbridgeTheme;
-            }
+        // The look is chosen in the Themes screen (Aurora or Neon Pulse); the light/dark/dynamic/AMOLED choice no longer applies
+        final boolean noActionBar = (flags & NO_ACTIONBAR) != 0;
+        if (GBApplication.isNeonThemeEnabled()) {
+            return noActionBar ? R.style.GadgetbridgeThemeNeon_NoActionBar : R.style.GadgetbridgeThemeNeon;
         }
+        return noActionBar ? R.style.GadgetbridgeThemeAurora_NoActionBar : R.style.GadgetbridgeThemeAurora;
     }
 
     public static void applyThemeOverlays(final Resources.Theme theme, final boolean dark) {
-        // Dynamic Color already ties tab/button/chip colors to the wallpaper palette, so the
-        // user's chosen accent preset only applies to the static Light/Dark themes.
-        if (!GBApplication.areDynamicColorsEnabled()) {
-            theme.applyStyle(GBApplication.getAccentColorOverlay(dark), true);
-        }
-        if (GBApplication.areContrastingSurfacesEnabled(dark)) {
-            theme.applyStyle(GBApplication.getContrastingSurfacesOverlay(dark), true);
-        }
+        // Intentionally empty: the accent presets and contrasting surfaces would replace the Aurora
+        // palette, which is fixed. Kept so launcher widgets and other callers stay unchanged.
     }
 
     public static void init(GBActivity activity, int flags) {

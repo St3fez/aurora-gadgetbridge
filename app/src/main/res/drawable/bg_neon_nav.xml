@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neon Pulse: flat dark pill behind the bottom navigation -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/neon_nav_fill" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/neon_border" />
+    <corners android:radius="32dp" />
+</shape>

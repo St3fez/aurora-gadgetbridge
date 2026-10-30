@@ -4,6 +4,15 @@
     <group
         android:checkableBehavior="single"
         android:id="@+id/applicaction_options">
+        <item android:id="@+id/action_health"
+            android:title="@string/health_title"
+            android:icon="@drawable/ic_heartrate" />
+        <item android:id="@+id/action_band_weather"
+            android:title="@string/band_weather_title"
+            android:icon="@drawable/ic_temperature" />
+        <item android:id="@+id/action_themes"
+            android:title="@string/themes_title"
+            android:icon="@drawable/ic_invert_colors" />
         <item android:id="@+id/action_settings"
             android:title="@string/action_settings"
             android:icon="@drawable/ic_settings" />

@@ -547,6 +547,14 @@ public class SettingsActivity extends AbstractSettingsActivityV2 implements Acti
             final Preference accentColor = findPreference("pref_key_accent_color");
             final SwitchPreferenceCompat contrastingSurfaces = findPreference(GBApplication.PREF_CONTRASTING_SURFACES);
 
+            // The light/dark/dynamic/black/contrast options are replaced by the Themes screen
+            final Preference dynamicExplanation = findPreference("pref_theme_dynamic_colors_explanation");
+            for (final Preference legacy : new Preference[]{theme, amoled_black, contrastingSurfaces, dynamicExplanation}) {
+                if (legacy != null) {
+                    legacy.setVisible(false);
+                }
+            }
+
             if (amoled_black != null) {
                 String selectedTheme = prefs.getString("pref_key_theme", requireContext().getString(R.string.pref_theme_value_system));
                 if (selectedTheme.equals("light"))
@@ -563,10 +571,9 @@ public class SettingsActivity extends AbstractSettingsActivityV2 implements Acti
             }
 
             if (accentColor != null) {
-                accentColor.setEnabled(!GBApplication.areDynamicColorsEnabled());
-                updateAccentColorSummary(accentColor);
+                // This entry now opens the Themes screen; the accent presets no longer apply
                 accentColor.setOnPreferenceClickListener(preference -> {
-                    showAccentColorPicker(accentColor);
+                    startActivity(new Intent(requireContext(), ThemesActivity.class));
                     return true;
                 });
             }

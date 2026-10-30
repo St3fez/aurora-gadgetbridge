@@ -9,10 +9,12 @@ import nodomain.freeyourgadget.gadgetbridge.widgets.impl.BodyEnergyWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.CaloriesWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.DistanceWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.GoalsWidget
+import nodomain.freeyourgadget.gadgetbridge.widgets.impl.HealthWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.HeartRateWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.HrvWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.HydrationWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.LastActivityWidget
+import nodomain.freeyourgadget.gadgetbridge.widgets.impl.LiveHeartRateWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.PaiWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.RespiratoryRateWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.SleepScoreWidget
@@ -49,7 +51,9 @@ object WidgetRegistry {
         CaloriesWidget,
         DistanceWidget,
         GoalsWidget,
+        HealthWidget,
         HeartRateWidget,
+        LiveHeartRateWidget,
         HrvWidget,
         HydrationWidget,
         LastActivityWidget,

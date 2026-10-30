@@ -21,12 +21,14 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import nodomain.freeyourgadget.gadgetbridge.GBApplication
 import nodomain.freeyourgadget.gadgetbridge.activities.dashboard.data.DashboardRepository
 import nodomain.freeyourgadget.gadgetbridge.activities.dashboard.data.DashboardSettings
 import nodomain.freeyourgadget.gadgetbridge.activities.dashboard.data.DashboardWidgetLoader
@@ -39,6 +41,8 @@ import nodomain.freeyourgadget.gadgetbridge.widgets.DashboardSnapshot
 import nodomain.freeyourgadget.gadgetbridge.widgets.DeletedWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.PlacedWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.WidgetGrid
+import nodomain.freeyourgadget.gadgetbridge.widgets.impl.HealthWidget
+import nodomain.freeyourgadget.gadgetbridge.widgets.impl.LiveHeartRateWidget
 import org.slf4j.LoggerFactory
 import java.time.Instant
 import java.time.LocalDate
@@ -120,8 +124,26 @@ class DashboardViewModel(
     init {
         observeUiState()
         observeLoadRequests()
+        viewModelScope.launch {
+            ensureOnDashboard("aurora_live_heart_rate_added", LiveHeartRateWidget.id, LiveHeartRateWidget.variants.first().id)
+            ensureOnDashboard("aurora_health_widget_added", HealthWidget.id, HealthWidget.variants.first().id)
+        }
         if (savedStateHandle.get<Boolean>(KEY_EDITING) == true) {
             onStartEditing()
+        }
+    }
+
+    /**
+     * Puts a widget of the fork on the dashboard once, the first time the dashboard opens with a device that supports
+     * it. It stays removed if the user deletes it afterwards.
+     */
+    private suspend fun ensureOnDashboard(key: String, widgetId: String, variantId: String) {
+        val prefs = GBApplication.getPrefs().preferences
+        if (prefs.getBoolean(key, false)) return
+        if (repository.availableWidgets().none { it.id == widgetId }) return
+        prefs.edit().putBoolean(key, true).apply()
+        if (layoutFlow.first().none { it.widget.id == widgetId }) {
+            repository.add(columns.value, widgetId, variantId)
         }
     }
 

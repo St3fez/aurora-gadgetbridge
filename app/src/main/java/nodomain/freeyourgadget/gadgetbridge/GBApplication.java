@@ -565,15 +565,8 @@ public class GBApplication extends Application {
     }
 
     public static boolean isDarkThemeEnabled() {
-        String selectedTheme = prefs.getString("pref_key_theme", context.getString(R.string.pref_theme_value_system));
-        Resources resources = context.getResources();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
-                (selectedTheme.equals(context.getString(R.string.pref_theme_value_system)) || selectedTheme.equals(context.getString(R.string.pref_theme_value_dynamic)))) {
-            return (resources.getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
-        } else {
-            return selectedTheme.equals(context.getString(R.string.pref_theme_value_dark));
-        }
+        // The Aurora theme is always dark
+        return true;
     }
 
     /**
@@ -583,18 +576,10 @@ public class GBApplication extends Application {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             return;
         }
-        final String selectedTheme = prefs.getString("pref_key_theme", context.getString(R.string.pref_theme_value_system));
-        final int nightMode;
-        if (selectedTheme.equals(context.getString(R.string.pref_theme_value_light))) {
-            nightMode = UiModeManager.MODE_NIGHT_NO;
-        } else if (selectedTheme.equals(context.getString(R.string.pref_theme_value_dark))) {
-            nightMode = UiModeManager.MODE_NIGHT_YES;
-        } else {
-            nightMode = UiModeManager.MODE_NIGHT_AUTO;
-        }
         final UiModeManager uiModeManager = context.getSystemService(UiModeManager.class);
         if (uiModeManager != null) {
-            uiModeManager.setApplicationNightMode(nightMode);
+            // The Aurora theme is always dark
+            uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_YES);
         }
     }
 
@@ -603,8 +588,23 @@ public class GBApplication extends Application {
     }
 
     public static boolean areDynamicColorsEnabled() {
-        String selectedTheme = prefs.getString("pref_key_theme", context.getString(R.string.pref_theme_value_system));
-        return selectedTheme.equals(context.getString(R.string.pref_theme_value_dynamic));
+        // The Aurora palette is fixed, so wallpaper-based colors never apply
+        return false;
+    }
+
+    public static final String PREF_THEME_STYLE = "pref_key_theme_style";
+    public static final String THEME_STYLE_AURORA = "aurora";
+    public static final String THEME_STYLE_NEON = "neon";
+
+    /**
+     * The look of the app, one of the THEME_STYLE_* values. Chosen in the Themes screen.
+     */
+    public static String getThemeStyle() {
+        return prefs.getString(PREF_THEME_STYLE, THEME_STYLE_AURORA);
+    }
+
+    public static boolean isNeonThemeEnabled() {
+        return THEME_STYLE_NEON.equals(getThemeStyle());
     }
 
     public static final String PREF_ACCENT_COLOR = "pref_key_accent_color";

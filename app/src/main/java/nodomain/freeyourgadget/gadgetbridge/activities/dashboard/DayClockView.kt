@@ -14,6 +14,7 @@ import androidx.core.graphics.ColorUtils
 import com.google.android.material.color.MaterialColors
 import nodomain.freeyourgadget.gadgetbridge.GBApplication
 import nodomain.freeyourgadget.gadgetbridge.R
+import nodomain.freeyourgadget.gadgetbridge.widgets.WidgetColors
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.roundToInt
@@ -268,11 +269,11 @@ class DayClockView @JvmOverloads constructor(
         fun colorOf(context: Context, kind: Kind?): Int {
             val track = MaterialColors.getColor(context, R.attr.gauge_track, ContextCompat.getColor(context, R.color.gauge_line_color))
             return when (kind) {
-                Kind.ACTIVITY -> Color.rgb(0x4A, 0xDE, 0x80)
-                Kind.EXERCISE -> Color.rgb(0xFB, 0x92, 0x3C)
-                Kind.LIGHT_SLEEP -> Color.rgb(0x38, 0xBD, 0xF8)
-                Kind.DEEP_SLEEP -> Color.rgb(0x25, 0x63, 0xEB)
-                Kind.REM_SLEEP -> Color.rgb(0xE8, 0x79, 0xF9)
+                Kind.ACTIVITY -> WidgetColors.activity
+                Kind.EXERCISE -> WidgetColors.exercise
+                Kind.LIGHT_SLEEP -> WidgetColors.lightSleep
+                Kind.DEEP_SLEEP -> WidgetColors.deepSleep
+                Kind.REM_SLEEP -> WidgetColors.remSleep
                 Kind.WORN -> ColorUtils.blendARGB(track, GBApplication.getSecondaryTextColor(context), WORN_BLEND)
                 Kind.NOT_WORN -> track
                 null -> ColorUtils.setAlphaComponent(track, FUTURE_ALPHA)

@@ -79,6 +79,8 @@ import nodomain.freeyourgadget.gadgetbridge.activities.debug.DebugActivityV2;
 import nodomain.freeyourgadget.gadgetbridge.activities.discovery.DiscoveryActivityV2;
 import nodomain.freeyourgadget.gadgetbridge.activities.welcome.WelcomeActivity;
 import nodomain.freeyourgadget.gadgetbridge.activities.workouts.WorkoutListFragment;
+import nodomain.freeyourgadget.gadgetbridge.band.LegacyCleanup;
+import nodomain.freeyourgadget.gadgetbridge.band.WeatherFeed;
 import nodomain.freeyourgadget.gadgetbridge.devices.DeviceManager;
 import nodomain.freeyourgadget.gadgetbridge.impl.GBDevice;
 import nodomain.freeyourgadget.gadgetbridge.model.ActivitySample;
@@ -281,7 +283,9 @@ public class ControlCenterv2 extends AppCompatActivity
     private void updateBottomNavigationVisibility() {
         bottomNavigationEnabled = visibleTabs.size() > 1 && GBApplication.getPrefs().getBoolean("display_bottom_navigation_bar", true);
         LOG.debug("Bottom navigation: tabs={}, enabled={}, pageBottomBarShown={}", visibleTabs, bottomNavigationEnabled, pageBottomBarShown);
-        navigationView.setVisibility(bottomNavigationEnabled && !pageBottomBarShown ? View.VISIBLE : View.GONE);
+        final int navVisibility = bottomNavigationEnabled && !pageBottomBarShown ? View.VISIBLE : View.GONE;
+        navigationView.setVisibility(navVisibility);
+        findViewById(R.id.bottom_nav_pill).setVisibility(navVisibility);
         barShades.setBottomShade(bottomNavigationEnabled || pageBottomBarShown ? findViewById(R.id.bottom_nav_shade) : null);
         ViewCompat.requestApplyInsets(mainContent);
     }
@@ -303,6 +307,9 @@ public class ControlCenterv2 extends AppCompatActivity
         AbstractGBActivity.init(this, AbstractGBActivity.NO_ACTIONBAR);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        LegacyCleanup.INSTANCE.run(this); // forgets what the removed gate and Gemini features left on the phone
+        WeatherFeed.INSTANCE.ensureScheduled(this); // keeps the band's outside temperature fresh when a city is saved
 
         GBPrefs prefs = GBApplication.getPrefs();
 
@@ -366,6 +373,11 @@ public class ControlCenterv2 extends AppCompatActivity
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
             toolbar.setPadding(toolbarPaddingLeft, insets.top, toolbarPaddingRight, toolbarPaddingBottom);
             navigationView.setPadding(bottomNavPaddingLeft, bottomNavPaddingTop, bottomNavPaddingRight, insets.bottom);
+            // The glass pill stops above the system navigation bar instead of running under it
+            final View navPill = findViewById(R.id.bottom_nav_pill);
+            final android.view.ViewGroup.MarginLayoutParams navPillParams = (android.view.ViewGroup.MarginLayoutParams) navPill.getLayoutParams();
+            navPillParams.bottomMargin = insets.bottom;
+            navPill.setLayoutParams(navPillParams);
             // #6894 - when the bottom nav is not visible, the FAB would show up behind the system navbar
             // A bottom bar of the page applies the system navbar inset itself
             final int contentPaddingBottom = navigationView.getVisibility() == View.VISIBLE || pageBottomBarShown ? 0 : insets.bottom;
@@ -587,7 +599,16 @@ public class ControlCenterv2 extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
 
         final int itemId = item.getItemId();
-        if (itemId == R.id.action_settings) {
+        if (itemId == R.id.action_themes) {
+            startActivity(new Intent(this, ThemesActivity.class));
+            return false;
+        } else if (itemId == R.id.action_health) {
+            nodomain.freeyourgadget.gadgetbridge.health.HealthReportActivity.Companion.open(this, null);
+            return false;
+        } else if (itemId == R.id.action_band_weather) {
+            startActivity(new Intent(this, nodomain.freeyourgadget.gadgetbridge.band.BandWeatherActivity.class));
+            return false;
+        } else if (itemId == R.id.action_settings) {
             final Intent settingsIntent = new Intent(this, SettingsActivity.class);
             startActivityForResult(settingsIntent, MENU_REFRESH_CODE);
             return false;

@@ -16,19 +16,17 @@
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="6dp"
         app:cardBackgroundColor="?attr/device_card_bg"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="28dp"
         app:cardElevation="0dp"
-        app:contentPaddingBottom="12dp"
-        app:contentPaddingLeft="12dp"
-        app:contentPaddingRight="4dp"
-        app:contentPaddingTop="12dp"
         app:strokeColor="?attr/stat_tile_border"
         app:strokeWidth="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="?attr/aurora_hero_bg"
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <RelativeLayout
                 android:id="@+id/device_item_infos_box"
@@ -85,16 +83,23 @@
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textAppearance="?attr/textAppearanceTitleLarge"
                         android:textColor="?attr/colorOnSurface"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
                         tools:text="My Pebble Watch" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="6dp"
+                        android:background="?attr/aurora_chip_bg"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="4dp">
 
                         <View
                             android:id="@+id/device_status_dot"
@@ -105,12 +110,12 @@
 
                         <TextView
                             android:id="@+id/device_status"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:includeFontPadding="false"
                             android:textAppearance="?attr/textAppearanceBodyMedium"
                             android:textColor="?attr/textColorSecondary"
+                            android:textSize="12sp"
                             tools:text="@string/connecting" />
                     </LinearLayout>
                 </LinearLayout>
@@ -118,6 +123,7 @@
                 <ImageView
                     android:id="@+id/device_info_image"
                     style="@style/DeviceCardActionButton"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_margin="0dp"

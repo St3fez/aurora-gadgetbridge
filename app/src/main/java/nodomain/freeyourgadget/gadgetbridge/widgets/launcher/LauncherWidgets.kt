@@ -38,6 +38,7 @@ object LauncherWidgets {
         "dashboard_devices_multiselect",
         "pref_key_theme",
         "pref_key_theme_amoled_black",
+        GBApplication.PREF_THEME_STYLE,
         GBApplication.PREF_ACCENT_COLOR,
         GBApplication.PREF_CONTRASTING_SURFACES,
     )

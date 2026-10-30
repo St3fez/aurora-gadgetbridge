@@ -27,7 +27,8 @@ object SleepWidget : MetricWidget<SleepWidget.Data>() {
     private const val REM = 2
     private const val AWAKE = 3
 
-    private val STAGE_COLORS = intArrayOf(WidgetColors.lightSleep, WidgetColors.deepSleep, WidgetColors.remSleep, WidgetColors.awakeSleep)
+    private val STAGE_COLORS: IntArray
+        get() = intArrayOf(WidgetColors.lightSleep, WidgetColors.deepSleep, WidgetColors.remSleep, WidgetColors.awakeSleep)
     private val STAGE_NAMES = intArrayOf(
         R.string.sleep_colored_stats_light,
         R.string.sleep_colored_stats_deep,
@@ -40,7 +41,8 @@ object SleepWidget : MetricWidget<SleepWidget.Data>() {
     private const val LANE_REM = 1
     private const val LANE_LIGHT = 2
     private const val LANE_DEEP = 3
-    private val LANE_COLORS = intArrayOf(WidgetColors.awakeSleep, WidgetColors.remSleep, WidgetColors.lightSleep, WidgetColors.deepSleep)
+    private val LANE_COLORS: IntArray
+        get() = intArrayOf(WidgetColors.awakeSleep, WidgetColors.remSleep, WidgetColors.lightSleep, WidgetColors.deepSleep)
 
     override val id = "sleep"
     override val label = R.string.menuitem_sleep

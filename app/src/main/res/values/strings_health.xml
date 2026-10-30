@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="health_title">Health condition</string>
+    <string name="widget_variant_health">Summary</string>
+    <string name="health_in_range">%1$d of %2$d on target</string>
+    <string name="health_no_data">Not enough data yet: wear the band and let it sync.</string>
+    <string name="health_tap_details">Tap for the full report</string>
+    <string name="health_report_subtitle">Last %1$d days · estimates from the band, not a diagnosis</string>
+    <string name="health_level_good">On target</string>
+    <string name="health_level_fair">Could be better</string>
+    <string name="health_level_attention">Keep an eye on it</string>
+    <string name="health_level_none">Not enough data</string>
+
+    <string name="health_chip_resting">Resting</string>
+    <string name="health_chip_trend">Trend</string>
+    <string name="health_chip_steps">Steps</string>
+    <string name="health_chip_effort">Effort</string>
+    <string name="health_chip_pai">PAI</string>
+    <string name="health_chip_sleep">Sleep</string>
+    <string name="health_chip_oxygen">Oxygen</string>
+    <string name="health_chip_stress">Stress</string>
+
+    <string name="health_sec_resting">Resting heart</string>
+    <string name="health_resting_value">%1$d bpm</string>
+    <string name="health_resting_line">Your usual: %1$d bpm · last 3 days: %2$d bpm (%3$+d)</string>
+    <string name="health_resting_no_baseline">At least 5 days of data are needed to learn your usual.</string>
+    <string name="health_resting_note" formatted="false">A lower resting heart rate goes with lower risk: every 10 bpm more matches about +9% all-cause and +8% cardiovascular mortality, and above 80 bpm the cardiovascular risk is 33% higher than below 60. Here it is estimated as the 10th percentile of the heart rate during sleep. Low values are normal in people who train.</string>
+    <string name="health_resting_trend_note">A rise above your usual can follow poor sleep, alcohol, stress, heat or the start of an infection. It is a signal to watch, not a diagnosis: if it stays high for days with fever or symptoms, see a doctor.</string>
+    <string name="health_resting_sources">Zhang et al., CMAJ 2016 (46 studies, 1.2 million people) · Hirten et al., J Med Internet Res 2021</string>
+
+    <string name="health_sec_effort">Effort and heart rate</string>
+    <string name="health_effort_value">%1$d min</string>
+    <string name="health_effort_line">This week: %1$d min moderate + %2$d min vigorous (count double) · goal 150</string>
+    <string name="health_effort_note">Moderate = 64–76%% of the maximum heart rate, vigorous = from 77%%. The WHO advises 150–300 minutes of moderate or 75–150 of vigorous effort a week. Your estimated maximum is %1$d bpm (208 − 0.7 × age): the typical error is about 10 bpm.</string>
+    <string name="health_effort_coverage">The minutes depend on how often the band measures your heart rate: more readings, more precision.</string>
+    <string name="health_effort_sources">Bull et al. (WHO), Br J Sports Med 2020 · Tanaka et al., JACC 2001 · O’Donovan et al., JAMA Intern Med 2017</string>
+    <string name="health_legend_moderate">Moderate</string>
+    <string name="health_legend_vigorous">Vigorous</string>
+
+    <string name="health_sec_load">Training load</string>
+    <string name="health_load_value">%1$+d%%</string>
+    <string name="health_load_line">Last 7 days against your 4-week average</string>
+    <string name="health_load_note">Load (Banister’s TRIMP) adds up the duration and intensity of effort, weighted by your heart rate reserve. It has no absolute thresholds: it shows whether you are pushing more or less than usual.</string>
+    <string name="health_load_sources">Banister, Modeling elite athletic performance, 1991</string>
+
+    <string name="health_sec_sleep">Sleep</string>
+    <string name="health_sleep_value">%1$dh %2$02d</string>
+    <string name="health_sleep_line">Average of the last nights · goal 7 h</string>
+    <string name="health_sleep_stages">Deep %1$d%% · REM %2$d%% · Light %3$d%%</string>
+    <string name="health_sleep_onset">Bedtime varies by ±%1$d min</string>
+    <string name="health_sleep_note" formatted="false">Adults should sleep at least 7 hours a night (AASM and Sleep Research Society). Across 16 studies of 1.4 million people, short sleep raised the risk of death by 12% and long sleep by 30%, but long sleep is often a sign of illness rather than its cause. In a healthy adult deep sleep is about 13–25% and REM 20–25%, and deep sleep falls with age.</string>
+    <string name="health_sleep_caution">Wrist sensors estimate sleep time with an average error of about half an hour and tell the stages apart only roughly: watch the trend, not a single night.</string>
+    <string name="health_sleep_sources">Watson et al., Sleep 2015 · Cappuccio et al., Sleep 2010 · Ohayon et al., Sleep 2004 · Yuan et al., npj Digit Med 2024</string>
+    <string name="health_legend_deep">Deep</string>
+    <string name="health_legend_rem">REM</string>
+    <string name="health_legend_light">Light</string>
+
+    <string name="health_sec_oxygen">Blood oxygen</string>
+    <string name="health_oxygen_value">%1$d%%</string>
+    <string name="health_oxygen_line">Lowest %1$d%% · readings under 90%%: %2$d%%</string>
+    <string name="health_oxygen_note" formatted="false">At rest the usual values are 95–100%. Repeated readings under 90% deserve a medical check. The wrist measurement is off by a few points and drops out with movement: the trend counts, not a single value.</string>
+    <string name="health_oxygen_sources">Clinical convention for pulse oximetry. The band is not a medical device.</string>
+
+    <string name="health_sec_stress">Stress</string>
+    <string name="health_stress_value">%1$d</string>
+    <string name="health_stress_line">Average of the last 7 days, from 1 to 99</string>
+    <string name="health_stress_note">Index computed by the band from heart rate variability: 1–39 relaxed, 40–59 normal, 60–79 medium, 80–99 high. It is the maker’s own algorithm and not clinically validated: use it as a trend.</string>
+    <string name="health_stress_sources">The band’s own scale (Zepp)</string>
+
+    <string name="health_sec_steps">Steps</string>
+    <string name="health_steps_line">Average of the last 7 days · goal for your age: %1$s</string>
+    <string name="health_steps_note">More steps, less mortality, up to a point where the benefit levels off: 8,000–10,000 under 60, 6,000–8,000 above. Against the least active quarter (about 3,600 steps a day) the risk of death was 0.60 at about 5,800 steps, 0.55 at 7,800 and 0.47 at 10,900.</string>
+    <string name="health_steps_sources">Paluch et al., Lancet Public Health 2022 (15 cohorts, 47,471 adults)</string>
+
+    <string name="health_sec_pai">PAI</string>
+    <string name="health_pai_line">Score of the last 7 days · goal 100</string>
+    <string name="health_pai_note" formatted="false">PAI turns heart rate into a weekly activity score. Staying at 100 or more every week goes with 17% lower cardiovascular mortality in men and 23% in women, whether or not the minutes guideline is met.</string>
+    <string name="health_pai_sources">Nes et al., HUNT study, 2017 (39,298 adults)</string>
+
+    <string name="health_sec_fitness">Fitness</string>
+    <string name="health_fitness_value">%1$d ml/kg/min</string>
+    <string name="health_fitness_line">Estimated VO2max, about %1$s MET</string>
+    <string name="health_fitness_note" formatted="false">Estimated with Uth’s method: 15.3 × maximum ÷ resting heart rate. It is rough and less precise than a stress test. Each extra MET (3.5 ml/kg/min) goes with 13% lower all-cause mortality and 15% fewer cardiovascular events. In the Cleveland Clinic study (about 122,000 people) low fitness carried about 5 times the risk of death of elite fitness.</string>
+    <string name="health_fitness_sources">Uth et al., Eur J Appl Physiol 2004 · Kodama et al., JAMA 2009 (33 studies) · Mandsager et al., JAMA Netw Open 2018</string>
+
+    <string name="health_sec_limits">What this band does not measure</string>
+    <string name="health_limits_note">Heart rate variability (HRV), skin temperature and breathing rate are not available on this band. With them, recovery and oncoming illness could be estimated better.</string>
+
+    <string name="health_disclaimer">This report compares the estimates of a wrist sensor with the findings of large studies. It is not a medical device and does not diagnose: for symptoms or doubts, talk to a doctor.</string>
+    <string name="health_sources_title">Sources</string>
+    <string name="health_sources_list">• Zhang et al., CMAJ 2016: https://www.cmaj.ca/content/cmaj/188/3/e53.full.pdf\n• Tanaka et al., JACC 2001: https://pubmed.ncbi.nlm.nih.gov/11153730/\n• Paluch et al., Lancet Public Health 2022: https://pubmed.ncbi.nlm.nih.gov/35247352/\n• Bull et al. (WHO), Br J Sports Med 2020: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7719906/\n• Ohayon et al., Sleep 2004: https://pubmed.ncbi.nlm.nih.gov/15586779/\n• Yuan et al., npj Digit Med 2024: https://pubmed.ncbi.nlm.nih.gov/38769347/\n• Kodama et al., JAMA 2009: https://doi.org/10.1001/jama.2009.681\n• Hirten et al., JMIR 2021: https://www.jmir.org/2021/2/e26107\n• Tudor-Locke et al., Br J Sports Med 2018 (summary): https://www.umass.edu/news/article/tudor-locke-examines-walking-cadence\n• Ekelund et al., Lancet 2016: https://pubmed.ncbi.nlm.nih.gov/27475271/\n• Diaz et al., Ann Intern Med 2017;167:465–475\n• Cappuccio et al., Sleep 2010: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864873/\n• Ohayon et al., Sleep Health 2017: https://escholarship.org/uc/item/qt9xc5x5h2\n• Windred et al., Sleep 2024: https://pubmed.ncbi.nlm.nih.gov/37738616/\n• Cole et al., N Engl J Med 1999: https://pubmed.ncbi.nlm.nih.gov/10536127/\n• Mandsager et al., JAMA Netw Open 2018: https://pmc.ncbi.nlm.nih.gov/articles/PMC6324439\n• O’Donovan et al., JAMA Intern Med 2017: https://doi.org/10.1001/jamainternmed.2016.8014</string>
+
+    <string name="health_chip_cadence">Pace</string>
+    <string name="health_chip_sleepq">Quality</string>
+    <string name="health_chip_sedentary">Still</string>
+    <string name="health_chip_recovery">Recovery</string>
+
+    <string name="health_sec_priorities">Where to start</string>
+    <string name="health_adv_effort">You are about %1$d minutes a week short of 150 minutes of moderate effort.</string>
+    <string name="health_adv_steps">You are about %1$s steps a day short of the goal for your age.</string>
+    <string name="health_adv_sleep">You sleep %1$d minutes a night less than the 7 hours advised.</string>
+    <string name="health_adv_sedentary">Break up long sitting spells: in the REGARDS study the risk was lower for people who kept their sitting to short blocks.</string>
+    <string name="health_adv_resting">Your resting heart rate is above your usual: sleep more, rest and watch the next days.</string>
+    <string name="health_adv_ok">Every measured indicator is on target. Keep it up.</string>
+
+    <string name="health_effort_days">Days with at least 10 minutes of effort: %1$d of 7</string>
+    <string name="health_effort_pattern" formatted="false">Packing the effort into one or two sessions a week also goes with about 30% lower all-cause mortality than staying inactive (63,591 adults).</string>
+
+    <string name="health_sec_cadence">Walking pace</string>
+    <string name="health_cadence_line">Last 7 days: %1$d min at 100–129 steps/min + %2$d min at 130 or more (count double)</string>
+    <string name="health_cadence_note">Pace shows how briskly you walk without using the heart rate: about 100 steps a minute is moderate effort and from about 130 it is vigorous (a review of 38 studies). It holds for the walking of healthy adults: in older people the values vary.</string>
+    <string name="health_cadence_sources">Tudor-Locke et al., Br J Sports Med 2018 (38 studies)</string>
+
+    <string name="health_sec_sedentary">Time sitting still</string>
+    <string name="health_sedentary_line">Awake, with almost no steps · still stretches of %1$d min on average, the longest %2$d min</string>
+    <string name="health_sedentary_note">In the REGARDS study (7,985 adults) the risk of death was highest for people sitting still 12.5 hours or more a day in stretches of 10 minutes or more. A high level of physical activity cancelled the risk tied to many hours of sitting (an analysis of over a million people).</string>
+    <string name="health_sedentary_caution">The band counts steps, not posture: standing still counts the same as sitting. It approximates what the studies measure with a hip accelerometer.</string>
+    <string name="health_sedentary_sources">Diaz et al., Ann Intern Med 2017 · Ekelund et al., Lancet 2016</string>
+
+    <string name="health_sec_sleepq">Sleep quality</string>
+    <string name="health_sleepq_value">%1$d%%</string>
+    <string name="health_sleepq_line">Efficiency: time asleep over time in bed · awake after falling asleep: %1$d min a night</string>
+    <string name="health_sleepq_regularity">Regular timing: %1$d%% of minutes in the same state (asleep or awake) as 24 hours earlier</string>
+    <string name="health_sleepq_note" formatted="false">The National Sleep Foundation consensus counts an efficiency of 85% or more as good. Regular timing matters as much as length: in 60,977 adults, the most regular sleepers had 20% to 48% lower mortality than the least regular, and regularity explained mortality better than duration.</string>
+    <string name="health_sleepq_sources">Ohayon et al., Sleep Health 2017 · Windred et al., Sleep 2024</string>
+
+    <string name="health_sec_recovery">Heart rate recovery</string>
+    <string name="health_recovery_line">Heart rate fall in the first minute after your last hard effort · cut-off 12 bpm</string>
+    <string name="health_recovery_note">A fall of 12 beats a minute or less in the first minute after effort is an unfavorable sign: in a study of 2,428 adults followed for 6 years the risk of death was double. Here it is measured after your workouts, without the controlled cool-down of a stress test: it is indicative.</string>
+    <string name="health_recovery_sources">Cole et al., N Engl J Med 1999</string>
+</resources>

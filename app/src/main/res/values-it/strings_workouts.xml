@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="workouts_last_title">Ultimo allenamento</string>
+    <string name="workouts_auto_tag">Trovato nei tuoi dati</string>
+    <string name="workouts_stat_avg_hr">FC media</string>
+    <string name="workouts_stat_max_hr">FC max</string>
+    <string name="workouts_stat_steps">Passi</string>
+    <string name="workouts_stat_load">Carico</string>
+    <string name="workouts_none_title">Nessun allenamento di almeno %1$d minuti</string>
+    <string name="workouts_none_hint">Comparirà qui da solo appena ne fai uno. Si cerca anche nei dati già sincronizzati: abbassa la durata minima per vedere sforzi più brevi.</string>
+    <string name="workouts_footer">Si aggiorna da solo a ogni sincronizzazione.</string>
+    <string name="workouts_threshold">Durata minima</string>
+    <string name="workouts_threshold_value">%1$d min</string>
+    <string name="workouts_zones_title">Tempo in ogni zona di battito</string>
+    <string name="workouts_14_days">Ultimi 14 giorni</string>
+    <string name="workouts_14_summary">%1$d allenamenti · %2$d min</string>
+    <string name="workouts_table_title">Ultimi allenamenti</string>
+    <string name="workouts_col_date">Giorno</string>
+    <string name="workouts_col_type">Tipo</string>
+    <string name="workouts_col_duration">Durata</string>
+    <string name="workouts_col_hr">FC</string>
+    <string name="workouts_col_max">Max</string>
+    <string name="workouts_col_steps">Passi</string>
+</resources>

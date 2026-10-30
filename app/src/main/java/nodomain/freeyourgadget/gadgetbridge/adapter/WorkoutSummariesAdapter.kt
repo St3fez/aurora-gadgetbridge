@@ -15,6 +15,8 @@ import android.widget.TextView
 import nodomain.freeyourgadget.gadgetbridge.GBApplication
 
 import nodomain.freeyourgadget.gadgetbridge.R
+import nodomain.freeyourgadget.gadgetbridge.workouts.WorkoutInsights
+import nodomain.freeyourgadget.gadgetbridge.workouts.WorkoutInsightsView
 import nodomain.freeyourgadget.gadgetbridge.activities.workouts.ActivityIconView
 import nodomain.freeyourgadget.gadgetbridge.activities.workouts.RowSelection
 import nodomain.freeyourgadget.gadgetbridge.activities.workouts.StatTileData
@@ -45,6 +47,15 @@ class WorkoutSummariesAdapter(
 ) : AbstractActivityListingAdapter<BaseActivitySummary>(context) {
     var dashboardStats: WorkoutListViewModel.DashboardStats? = null
     var isDashboardLoading: Boolean = false
+
+    /** The latest workout, the last two weeks and the table shown above the totals. */
+    var insights: WorkoutInsights? = null
+
+    /** Called with the id of a workout summary the user tapped in the insights. */
+    var onInsightOpen: ((Long) -> Unit)? = null
+
+    /** Called with the new minimum workout length, in minutes. */
+    var onInsightThreshold: ((Int) -> Unit)? = null
 
     /**
      * Upload state per summary id, for the indicator on each row. Resolved off the main thread
@@ -174,8 +185,14 @@ class WorkoutSummariesAdapter(
     inner class DashboardViewHolder(itemView: View) : AbstractActivityListingViewHolder<BaseActivitySummary>(itemView) {
         private val loadingSpinner: ProgressBar = itemView.findViewById(R.id.summary_dashboard_layout_loading)
         private val contentLayout: LinearLayout = itemView.findViewById(R.id.summary_dashboard_layout_content)
+        private val insightsView = WorkoutInsightsView(context).also {
+            itemView.findViewById<ViewGroup>(R.id.summary_dashboard_insights).addView(it)
+        }
 
         override fun fill(position: Int, summary: BaseActivitySummary, selected: Boolean) {
+            insightsView.onOpen = onInsightOpen
+            insightsView.onThreshold = onInsightThreshold
+            insights?.let { insightsView.setInsights(it) }
             loadingSpinner.visibility = if (isDashboardLoading) View.VISIBLE else View.GONE
             setPlaceholderEffect(isDashboardLoading)
 
@@ -213,6 +230,8 @@ class WorkoutSummariesAdapter(
             val activitiesCount = (itemCount - 2).coerceAtLeast(0) // remove dashboard and end spacer
 
             contentLayout.removeAllViews()
+            // Without a single activity the totals would only read 0 and the dates 1 Jan 1970
+            if (activitiesCount == 0) return
 
             val title = if (activityKindFilter != 0) {
                 ActivityKind.fromCode(activityKindFilter).getLabel(context)

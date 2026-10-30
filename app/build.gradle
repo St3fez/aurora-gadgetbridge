@@ -229,6 +229,14 @@ android {
             }
         }
 
+        // Side-by-side build of the Aurora redesign: debug-signed, not minified, own applicationId
+        aurora {
+            initWith debug
+            applicationIdSuffix ".aurora"
+            versionNameSuffix "-aurora"
+            matchingFallbacks = ["debug"]
+        }
+
         nopebble {
             applicationIdSuffix ".nightly_nopebble"
             versionNameSuffix "-${getGitHashShort}"

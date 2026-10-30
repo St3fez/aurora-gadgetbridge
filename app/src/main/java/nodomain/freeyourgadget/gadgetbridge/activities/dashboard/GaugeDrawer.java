@@ -2,6 +2,7 @@ package nodomain.freeyourgadget.gadgetbridge.activities.dashboard;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -27,7 +28,7 @@ import nodomain.freeyourgadget.gadgetbridge.R;
 
 public class GaugeDrawer {
     private static final Logger LOG = LoggerFactory.getLogger(GaugeDrawer.class);
-    protected @ColorInt int color_unknown = Color.argb(25, 128, 128, 128);
+    protected @ColorInt int color_unknown = Color.argb(40, 255, 255, 255);
 
     private static final float RING_DEFAULT_SIZE_DP = 150f;
     private static final float RING_DESIGN_SIZE = 220f;
@@ -70,6 +71,7 @@ public class GaugeDrawer {
         final Ring ring = new Ring(gaugeBar, shape);
         ring.drawTrack(color_unknown);
         if (value > 0) {
+            ring.drawGlow(0, Math.min(value, 1), color);
             ring.drawSection(0, Math.min(value, 1), color);
         }
         ring.show(gaugeBar);
@@ -192,6 +194,23 @@ public class GaugeDrawer {
 
         void drawSection(final float start, final float end, @ColorInt final int color) {
             drawSection(start, end, color, true, true);
+        }
+
+        /**
+         * A soft halo of the arc's color behind it, so the arc reads as lit. It stays inside the bitmap.
+         */
+        void drawGlow(final float start, final float end, @ColorInt final int color) {
+            if (end <= start) {
+                return;
+            }
+            final Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeCap(Paint.Cap.ROUND);
+            paint.setStrokeWidth(RING_STROKE * scale);
+            paint.setColor((color & 0x00FFFFFF) | 0xA0000000);
+            paint.setMaskFilter(new BlurMaskFilter(RING_STROKE * scale * 0.7f, BlurMaskFilter.Blur.NORMAL));
+            canvas.drawArc(oval, shape.startDegrees + shape.sweepDegrees * start, shape.sweepDegrees * (end - start), false, paint);
         }
 
         /**

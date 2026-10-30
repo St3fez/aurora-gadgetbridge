@@ -453,22 +453,22 @@
     </style>
     <style name="ThemeOverlay.App.DropdownDeviceIcon" parent="ThemeOverlay.App.DeviceCardIcon" />
     <style name="DeviceCardActionIcon">
-        <item name="android:layout_width">40dp</item>
-        <item name="android:layout_height">40dp</item>
-        <item name="android:padding">3dp</item>
+        <item name="android:layout_width">44dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">?attr/aurora_action_bg</item>
+        <item name="android:padding">11dp</item>
         <item name="android:scaleType">fitCenter</item>
-        <item name="tint">?attr/textColorSecondary</item>
+        <item name="tint">?attr/colorOnSurface</item>
     </style>
     <style name="DeviceCardActionButton" parent="DeviceCardActionIcon">
         <item name="android:layout_margin">2dp</item>
-        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>
     <style name="DeviceCardActionBox">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_margin">4dp</item>
         <item name="android:minWidth">40dp</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center_horizontal</item>
@@ -477,10 +477,11 @@
     <style name="DeviceCardActionLabel">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">-6dp</item>
+        <item name="android:layout_marginTop">3dp</item>
         <item name="android:paddingBottom">2dp</item>
         <item name="android:textAppearance">?attr/textAppearanceLabelSmall</item>
-        <item name="android:textColor">?attr/textColorSecondary</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="GadgetbridgeTheme.ToolbarIconOverlay" parent="">
@@ -517,13 +518,13 @@
 
     <!-- splash screen -->
     <style name="SplashTheme" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/window_background_light</item>
+        <item name="windowSplashScreenBackground">@color/aurora_ink</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
-        <item name="postSplashScreenTheme">@style/GadgetbridgeTheme.NoActionBar</item>
-        <item name="android:statusBarColor">@color/window_background_light</item>
-        <item name="android:navigationBarColor">@color/window_background_light</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+        <item name="postSplashScreenTheme">@style/GadgetbridgeThemeAurora.NoActionBar</item>
+        <item name="android:statusBarColor">@color/aurora_ink</item>
+        <item name="android:navigationBarColor">@color/aurora_ink</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
     </style>
 
     <!-- preferences screens -->

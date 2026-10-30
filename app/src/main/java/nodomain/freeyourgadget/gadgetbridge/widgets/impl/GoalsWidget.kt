@@ -45,11 +45,14 @@ object GoalsWidget : GBWidget<GoalsWidget.Data> {
     private const val METERS_PER_KM = 1000.0
     private const val MILES_PER_METER = 0.000621371
 
-    enum class Goal(val label: Int, val color: Int) {
-        STEPS(R.string.steps, WidgetColors.activity),
-        DISTANCE(R.string.distance, WidgetColors.distance),
-        ACTIVE_TIME(R.string.activity_list_summary_active_time, WidgetColors.activeTime),
-        SLEEP(R.string.menuitem_sleep, WidgetColors.lightSleep),
+    enum class Goal(val label: Int, private val colorOf: () -> Int) {
+        STEPS(R.string.steps, { WidgetColors.activity }),
+        DISTANCE(R.string.distance, { WidgetColors.distance }),
+        ACTIVE_TIME(R.string.activity_list_summary_active_time, { WidgetColors.activeTime }),
+        SLEEP(R.string.menuitem_sleep, { WidgetColors.lightSleep });
+
+        /** Read each time it is used, so a theme change shows without restarting the app. */
+        val color: Int get() = colorOf()
     }
 
     /**

@@ -877,9 +877,13 @@ public class GBDeviceAdapterv2 extends ListAdapter<GBDevice, GBDeviceAdapterv2.V
 
             cardViewActivityCardLayout = view.findViewById(R.id.card_view_activity_card_layout);
 
-            TotalStepsChart = new ActivityGauge(view.findViewById(R.id.device_card_gauge_steps));
-            TotalDistanceChart = new ActivityGauge(view.findViewById(R.id.device_card_gauge_distance));
-            SleepTimeChart = new ActivityGauge(view.findViewById(R.id.device_card_gauge_sleep));
+            // One accent per metric from the theme, so each ring is recognisable at a glance
+            TotalStepsChart = new ActivityGauge(view.findViewById(R.id.device_card_gauge_steps),
+                    com.google.android.material.color.MaterialColors.getColor(view, R.attr.gauge_accent_a, 0xFF22D3EE));
+            TotalDistanceChart = new ActivityGauge(view.findViewById(R.id.device_card_gauge_distance),
+                    com.google.android.material.color.MaterialColors.getColor(view, R.attr.gauge_accent_b, 0xFFA78BFA));
+            SleepTimeChart = new ActivityGauge(view.findViewById(R.id.device_card_gauge_sleep),
+                    com.google.android.material.color.MaterialColors.getColor(view, R.attr.gauge_accent_c, 0xFFF472B6));
         }
     }
 

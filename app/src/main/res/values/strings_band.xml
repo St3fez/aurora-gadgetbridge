@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="band_weather_title">Outside temperature</string>
+    <string name="band_weather_help">Shows the temperature on the watchface and on the band\'s weather screen. Type your city: every 30 minutes the phone asks Open-Meteo for its weather, and only the city name and its coordinates are sent. Leave it empty to turn this off.</string>
+    <string name="band_weather_city">City</string>
+    <string name="band_weather_save">Save and update</string>
+    <string name="band_weather_working">Updating…</string>
+    <string name="band_weather_off">Weather is off: no city saved</string>
+    <string name="band_weather_not_found">City not found</string>
+    <string name="band_weather_failed">Could not update: %1$s</string>
+    <string name="band_weather_status">%1$s: %2$d °C, updated at %3$s</string>
+    <string name="band_weather_source">Data: Open-Meteo.com</string>
+</resources>

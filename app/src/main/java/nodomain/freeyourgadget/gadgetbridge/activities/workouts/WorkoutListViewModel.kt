@@ -8,6 +8,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import nodomain.freeyourgadget.gadgetbridge.GBApplication
+import nodomain.freeyourgadget.gadgetbridge.workouts.WorkoutDetector
+import nodomain.freeyourgadget.gadgetbridge.workouts.WorkoutInsights
 import nodomain.freeyourgadget.gadgetbridge.activities.ActivitySummariesFilter
 import nodomain.freeyourgadget.gadgetbridge.entities.BaseActivitySummary
 import nodomain.freeyourgadget.gadgetbridge.entities.BaseActivitySummaryDao
@@ -32,6 +34,11 @@ class WorkoutListViewModel : ViewModel() {
 
     private val _dashboardStats = MutableLiveData<DashboardStats?>()
     val dashboardStats: LiveData<DashboardStats?> = _dashboardStats
+
+    private val _insights = MutableLiveData<WorkoutInsights?>()
+
+    /** The latest workout of the chosen minimum length, the last two weeks and a table of recent workouts. */
+    val insights: LiveData<WorkoutInsights?> = _insights
 
     private val _isDashboardLoading = MutableLiveData<Boolean>()
     val isDashboardLoading: LiveData<Boolean> = _isDashboardLoading
@@ -68,6 +75,8 @@ class WorkoutListViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val summaries = withContext(Dispatchers.IO) {
+                    // Workouts hidden in the data that was already synced are found before the list is read
+                    WorkoutDetector.sync(GBApplication.app().deviceManager.devices)
                     loadSummariesFromDatabase(
                         activityKindFilter,
                         dateFromFilter,
@@ -97,6 +106,14 @@ class WorkoutListViewModel : ViewModel() {
 
                 _summaries.value = allSummaries
 
+                _insights.value = withContext(Dispatchers.IO) {
+                    try {
+                        WorkoutInsights.compute(summaries)
+                    } catch (e: Exception) {
+                        LOG.error("Error computing the workout insights", e)
+                        null
+                    }
+                }
                 loadDashboardStats(summaries, silent)
             } catch (e: Exception) {
                 LOG.error("Error loading summaries", e)

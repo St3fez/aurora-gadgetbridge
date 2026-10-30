@@ -13,8 +13,8 @@ import nodomain.freeyourgadget.gadgetbridge.R;
  * The container must include the activity_gauge layout.
  */
 public class ActivityGauge {
-    private static final int COLOR_START = Color.parseColor("#e74c3c");
-    private static final int COLOR_END = Color.parseColor("#2ecc71");
+    private static final int COLOR_START = Color.parseColor("#f472b6");
+    private static final int COLOR_END = Color.parseColor("#22d3ee");
     private static final float VALUE_TEXT_SCALE = 0.15f;
     private static final float LABEL_TEXT_SCALE = 0.11f;
 
@@ -23,9 +23,18 @@ public class ActivityGauge {
     private final TextView value;
     private final TextView label;
     private final ImageView goal;
+    private final int accent;
 
     public ActivityGauge(final View container) {
+        this(container, 0);
+    }
+
+    /**
+     * @param accent the ring color; 0 shades the ring from pink to cyan as the goal gets closer
+     */
+    public ActivityGauge(final View container, final int accent) {
         this.container = container;
+        this.accent = accent;
         ring = container.findViewById(R.id.activity_gauge_ring);
         value = container.findViewById(R.id.activity_gauge_value);
         label = container.findViewById(R.id.activity_gauge_label);
@@ -39,7 +48,7 @@ public class ActivityGauge {
     public void update(final GaugeDrawer gaugeDrawer, final float current, final float target,
                        final String valueText, final String labelText) {
         final float progress = Math.max(0, Math.min(1, current / target));
-        gaugeDrawer.drawSimpleGauge(ring, interpolateColor(COLOR_START, COLOR_END, progress), progress);
+        gaugeDrawer.drawSimpleGauge(ring, accent != 0 ? accent : interpolateColor(COLOR_START, COLOR_END, progress), progress);
         value.setText(valueText);
         label.setText(labelText);
         goal.setVisibility(progress == 1 ? View.VISIBLE : View.GONE);

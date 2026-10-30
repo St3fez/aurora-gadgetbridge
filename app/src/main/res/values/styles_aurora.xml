@@ -1,0 +1,193 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Aurora redesign: the only theme this fork uses. Built on the dark theme so every existing
+         attribute is defined; it only restyles colors, shapes, type and the screen background. -->
+
+    <style name="ShapeAppearance.Aurora.Small" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">14dp</item>
+    </style>
+    <style name="ShapeAppearance.Aurora.Medium" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+    <style name="ShapeAppearance.Aurora.Large" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30dp</item>
+    </style>
+
+    <!-- Glass card: translucent fill and a hairline light border, no shadow -->
+    <style name="Widget.Aurora.Card" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">?attr/stat_tile_bg</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">?attr/stat_tile_border</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- The toolbar floats on the aurora background instead of sitting on a bar -->
+    <style name="Widget.Aurora.AppBarLayout" parent="Widget.Material3.AppBarLayout">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="liftOnScroll">false</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="GadgetbridgeThemeAurora" parent="GadgetbridgeThemeDark">
+        <item name="colorSurface">@color/aurora_ink</item>
+        <item name="colorSurfaceContainerLowest">@color/aurora_ink</item>
+        <item name="colorSurfaceContainerLow">@color/aurora_ink_low</item>
+        <item name="colorSurfaceContainer">@color/aurora_ink_mid</item>
+        <item name="colorSurfaceContainerHigh">@color/aurora_ink_high</item>
+        <item name="colorSurfaceContainerHighest">@color/aurora_ink_highest</item>
+        <item name="colorSurfaceVariant">@color/aurora_ink_high</item>
+        <item name="colorOnSurface">@color/aurora_text</item>
+        <item name="colorOnSurfaceVariant">@color/aurora_text_dim</item>
+        <item name="colorOutline">@color/aurora_text_faint</item>
+        <item name="colorOutlineVariant">@color/aurora_glass_border</item>
+        <item name="textColorTertiary">@color/aurora_text_faint</item>
+
+        <item name="tab_pill">@color/aurora_violet</item>
+        <item name="tab_pill_on">@android:color/white</item>
+        <item name="subtab_pill">@color/aurora_violet_container</item>
+        <item name="subtab_pill_on">@color/aurora_lilac</item>
+        <item name="subtab_active">@color/aurora_lilac</item>
+
+        <item name="stat_tile_bg">@color/aurora_glass</item>
+        <item name="stat_tile_border">@color/aurora_glass_border</item>
+        <item name="grid_tile_bg">@color/aurora_glass</item>
+        <item name="device_card_bg">@color/aurora_glass</item>
+        <item name="chart_marker_bg">@color/aurora_ink_highest</item>
+        <item name="gauge_track">@color/aurora_glass_strong</item>
+        <item name="value_line">@color/aurora_glass_border</item>
+        <item name="row_separator">@color/aurora_glass</item>
+
+        <item name="toolbar_bg">@android:color/transparent</item>
+        <item name="main_bar_bg">@android:color/transparent</item>
+        <!-- No dark seam under the floating toolbar -->
+        <item name="bar_shade">@null</item>
+
+        <item name="chart_deep_sleep">@color/aurora_chart_deep_sleep</item>
+        <item name="chart_light_sleep">@color/aurora_chart_light_sleep</item>
+        <item name="chart_rem_sleep">@color/aurora_chart_rem_sleep</item>
+        <item name="chart_awake_sleep">@color/aurora_chart_awake_sleep</item>
+        <item name="chart_activity">@color/aurora_chart_activity</item>
+        <item name="chart_not_worn">@color/aurora_chart_not_worn</item>
+
+        <item name="android:windowBackground">@drawable/aurora_background</item>
+        <item name="android:colorBackground">@color/aurora_ink</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- DrawerLayout paints the status bar area with colorPrimaryDark -->
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+
+        <item name="android:fontFamily">@font/sora</item>
+        <item name="fontFamily">@font/sora</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Aurora.Small</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Aurora.Medium</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Aurora.Large</item>
+        <item name="materialCardViewStyle">@style/Widget.Aurora.Card</item>
+        <item name="appBarLayoutStyle">@style/Widget.Aurora.AppBarLayout</item>
+
+        <item name="aurora_nav_bg">@drawable/bg_aurora_nav</item>
+        <item name="aurora_hero_bg">@drawable/bg_aurora_hero</item>
+        <item name="aurora_action_bg">@drawable/bg_aurora_action</item>
+        <item name="aurora_chip_bg">@drawable/bg_aurora_chip</item>
+        <item name="gauge_accent_a">#22D3EE</item>
+        <item name="gauge_accent_b">#A78BFA</item>
+        <item name="gauge_accent_c">#F472B6</item>
+    </style>
+
+    <style name="GadgetbridgeThemeAurora.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Neon Pulse: pure black, flat dark tiles with a hairline border, one electric lime accent.
+         Built on Aurora, so it only overrides what differs. -->
+    <style name="ShapeAppearance.Neon.Small" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+    <style name="ShapeAppearance.Neon.Medium" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">18dp</item>
+    </style>
+    <style name="ShapeAppearance.Neon.Large" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <style name="GadgetbridgeThemeNeon" parent="GadgetbridgeThemeAurora">
+        <item name="colorSurface">@color/neon_black</item>
+        <item name="colorSurfaceContainerLowest">@color/neon_black</item>
+        <item name="colorSurfaceContainerLow">@color/neon_surface_low</item>
+        <item name="colorSurfaceContainer">@color/neon_surface</item>
+        <item name="colorSurfaceContainerHigh">@color/neon_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/neon_surface_highest</item>
+        <item name="colorSurfaceVariant">@color/neon_surface_high</item>
+        <item name="colorOnSurface">@color/neon_text</item>
+        <item name="colorOnSurfaceVariant">@color/neon_text_dim</item>
+        <item name="colorOutline">@color/neon_text_faint</item>
+        <item name="colorOutlineVariant">@color/neon_border</item>
+        <item name="textColorTertiary">@color/neon_text_faint</item>
+
+        <item name="tab_pill">@color/neon_lime</item>
+        <item name="tab_pill_on">@android:color/black</item>
+        <item name="subtab_pill">@color/neon_lime_container</item>
+        <item name="subtab_pill_on">@color/neon_lime</item>
+        <item name="subtab_active">@color/neon_lime</item>
+
+        <item name="stat_tile_bg">@color/neon_surface</item>
+        <item name="stat_tile_border">@color/neon_border</item>
+        <item name="grid_tile_bg">@color/neon_surface</item>
+        <item name="device_card_bg">@color/neon_surface</item>
+        <item name="chart_marker_bg">@color/neon_surface_highest</item>
+        <item name="gauge_track">@color/neon_surface_highest</item>
+        <item name="value_line">@color/neon_border</item>
+        <item name="row_separator">@color/neon_border</item>
+
+        <item name="chart_deep_sleep">@color/neon_chart_deep_sleep</item>
+        <item name="chart_light_sleep">@color/neon_chart_light_sleep</item>
+        <item name="chart_rem_sleep">@color/neon_chart_rem_sleep</item>
+        <item name="chart_awake_sleep">@color/neon_chart_awake_sleep</item>
+        <item name="chart_activity">@color/neon_lime</item>
+        <item name="chart_not_worn">@color/neon_chart_not_worn</item>
+
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Neon.Small</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Neon.Medium</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Neon.Large</item>
+
+        <item name="aurora_nav_bg">@drawable/bg_neon_nav</item>
+        <item name="aurora_hero_bg">@drawable/bg_neon_hero</item>
+        <item name="aurora_action_bg">@drawable/bg_neon_action</item>
+        <item name="aurora_chip_bg">@drawable/bg_neon_chip</item>
+        <item name="gauge_accent_a">@color/neon_lime</item>
+        <item name="gauge_accent_b">@color/neon_amber</item>
+        <item name="gauge_accent_c">@color/neon_blue</item>
+    </style>
+
+    <style name="GadgetbridgeThemeNeon.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- For activities that only show a dialog over the screen below -->
+    <style name="GadgetbridgeThemeAurora.Translucent">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="GadgetbridgeThemeNeon.Translucent">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+</resources>

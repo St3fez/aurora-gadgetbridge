@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="health_title">Condizione di salute</string>
+    <string name="widget_variant_health">Riepilogo</string>
+    <string name="health_in_range">%1$d su %2$d in linea</string>
+    <string name="health_no_data">Servono ancora dati: tieni la band al polso e lasciala sincronizzare.</string>
+    <string name="health_tap_details">Tocca per il report completo</string>
+    <string name="health_report_subtitle">Ultimi %1$d giorni · stime dalla band, non una diagnosi</string>
+    <string name="health_level_good">In linea</string>
+    <string name="health_level_fair">Migliorabile</string>
+    <string name="health_level_attention">Da tenere d’occhio</string>
+    <string name="health_level_none">Pochi dati</string>
+
+    <string name="health_chip_resting">Riposo</string>
+    <string name="health_chip_trend">Trend</string>
+    <string name="health_chip_steps">Passi</string>
+    <string name="health_chip_effort">Sforzo</string>
+    <string name="health_chip_pai">PAI</string>
+    <string name="health_chip_sleep">Sonno</string>
+    <string name="health_chip_oxygen">Ossigeno</string>
+    <string name="health_chip_stress">Stress</string>
+
+    <string name="health_sec_resting">Cuore a riposo</string>
+    <string name="health_resting_value">%1$d bpm</string>
+    <string name="health_resting_line">Il tuo solito: %1$d bpm · ultimi 3 giorni: %2$d bpm (%3$+d)</string>
+    <string name="health_resting_no_baseline">Servono almeno 5 giorni di dati per conoscere il tuo «solito».</string>
+    <string name="health_resting_note" formatted="false">Un battito a riposo più basso va con meno rischio: ogni 10 bpm in più corrispondono a circa +9% di mortalità totale e +8% cardiovascolare, e oltre 80 bpm il rischio cardiovascolare è il 33% più alto che sotto 60. Qui è stimato come il 10° percentile del battito durante il sonno. Valori bassi sono normali in chi si allena.</string>
+    <string name="health_resting_trend_note">Una salita sopra il tuo solito può seguire poco sonno, alcol, stress, caldo o l’inizio di un’infezione. È un segnale da osservare, non una diagnosi: se resta alto per giorni con febbre o sintomi, senti il medico.</string>
+    <string name="health_resting_sources">Zhang et al., CMAJ 2016 (46 studi, 1,2 milioni di persone) · Hirten et al., J Med Internet Res 2021</string>
+
+    <string name="health_sec_effort">Sforzo e battito</string>
+    <string name="health_effort_value">%1$d min</string>
+    <string name="health_effort_line">Questa settimana: %1$d min moderati + %2$d min intensi (contano doppio) · obiettivo 150</string>
+    <string name="health_effort_note">Moderato = 64–76%% del battito massimo, intenso = da 77%%. L’OMS indica 150–300 minuti moderati o 75–150 intensi a settimana. Il tuo massimo stimato è %1$d bpm (208 − 0,7 × età): l’errore tipico è di circa 10 bpm.</string>
+    <string name="health_effort_coverage">I minuti dipendono da quanto spesso la band misura il battito: più misure, più precisione.</string>
+    <string name="health_effort_sources">Bull et al. (OMS), Br J Sports Med 2020 · Tanaka et al., JACC 2001 · O’Donovan et al., JAMA Intern Med 2017</string>
+    <string name="health_legend_moderate">Moderato</string>
+    <string name="health_legend_vigorous">Intenso</string>
+
+    <string name="health_sec_load">Carico di allenamento</string>
+    <string name="health_load_value">%1$+d%%</string>
+    <string name="health_load_line">Ultimi 7 giorni rispetto alla tua media di 4 settimane</string>
+    <string name="health_load_note">Il carico (TRIMP di Banister) somma durata e intensità dello sforzo in base alla tua riserva cardiaca. Non ha soglie assolute: serve a vedere se stai spingendo più o meno del solito.</string>
+    <string name="health_load_sources">Banister, Modeling elite athletic performance, 1991</string>
+
+    <string name="health_sec_sleep">Sonno</string>
+    <string name="health_sleep_value">%1$dh %2$02d</string>
+    <string name="health_sleep_line">Media delle ultime notti · obiettivo 7 h</string>
+    <string name="health_sleep_stages">Profondo %1$d%% · REM %2$d%% · Leggero %3$d%%</string>
+    <string name="health_sleep_onset">Orario di addormentamento: variabilità di ±%1$d min</string>
+    <string name="health_sleep_note" formatted="false">Gli adulti dovrebbero dormire almeno 7 ore a notte (AASM e Sleep Research Society). In 16 studi su 1,4 milioni di persone dormire poco aumentava il rischio di morte del 12% e dormire molto del 30%, ma dormire molto è spesso un segno di malattia, non la causa. In un adulto sano il sonno profondo è circa il 13–25% e il REM il 20–25%, e il profondo cala con l’età.</string>
+    <string name="health_sleep_caution">I sensori da polso stimano la durata con un errore medio di circa mezz’ora e distinguono le fasi in modo approssimato: guarda la tendenza, non la singola notte.</string>
+    <string name="health_sleep_sources">Watson et al., Sleep 2015 · Cappuccio et al., Sleep 2010 · Ohayon et al., Sleep 2004 · Yuan et al., npj Digit Med 2024</string>
+    <string name="health_legend_deep">Profondo</string>
+    <string name="health_legend_rem">REM</string>
+    <string name="health_legend_light">Leggero</string>
+
+    <string name="health_sec_oxygen">Ossigeno nel sangue</string>
+    <string name="health_oxygen_value">%1$d%%</string>
+    <string name="health_oxygen_line">Minimo %1$d%% · letture sotto 90%%: %2$d%%</string>
+    <string name="health_oxygen_note" formatted="false">A riposo i valori tipici sono 95–100%. Letture ripetute sotto 90% meritano un controllo medico. La misura da polso ha un errore di alcuni punti e salta con i movimenti: conta la tendenza, non il singolo valore.</string>
+    <string name="health_oxygen_sources">Convenzione clinica per la pulsossimetria. La band non è un dispositivo medico.</string>
+
+    <string name="health_sec_stress">Stress</string>
+    <string name="health_stress_value">%1$d</string>
+    <string name="health_stress_line">Media degli ultimi 7 giorni, da 1 a 99</string>
+    <string name="health_stress_note">Indice della band calcolato dalla variabilità del battito: 1–39 rilassato, 40–59 normale, 60–79 medio, 80–99 alto. È un algoritmo del produttore, non validato clinicamente: usalo come tendenza.</string>
+    <string name="health_stress_sources">Scala della band (Zepp)</string>
+
+    <string name="health_sec_steps">Passi</string>
+    <string name="health_steps_line">Media degli ultimi 7 giorni · obiettivo per la tua età: %1$s</string>
+    <string name="health_steps_note">Più passi, meno mortalità, fino a un punto in cui il beneficio si ferma: 8.000–10.000 sotto i 60 anni, 6.000–8.000 sopra. Rispetto al quarto meno attivo (circa 3.600 passi al giorno) il rischio di morte era 0,60 con circa 5.800 passi, 0,55 con 7.800 e 0,47 con 10.900.</string>
+    <string name="health_steps_sources">Paluch et al., Lancet Public Health 2022 (15 coorti, 47.471 adulti)</string>
+
+    <string name="health_sec_pai">PAI</string>
+    <string name="health_pai_line">Punteggio degli ultimi 7 giorni · obiettivo 100</string>
+    <string name="health_pai_note" formatted="false">Il PAI trasforma il battito in un punteggio settimanale di attività. Restare a 100 o più ogni settimana va con una mortalità cardiovascolare più bassa del 17% negli uomini e del 23% nelle donne, a prescindere dalle linee guida sui minuti.</string>
+    <string name="health_pai_sources">Nes et al., studio HUNT, 2017 (39.298 adulti)</string>
+
+    <string name="health_sec_fitness">Forma fisica</string>
+    <string name="health_fitness_value">%1$d ml/kg/min</string>
+    <string name="health_fitness_line">VO2max stimato, circa %1$s MET</string>
+    <string name="health_fitness_note" formatted="false">Stima con il metodo di Uth: 15,3 × battito massimo ÷ battito a riposo. È approssimata e meno precisa di un test da sforzo. Ogni MET in più (3,5 ml/kg/min) va con il 13% di mortalità totale in meno e il 15% di eventi cardiovascolari in meno. Nello studio della Cleveland Clinic (circa 122.000 persone) chi aveva una forma fisica bassa aveva un rischio di morte circa 5 volte quello di chi l’aveva elite.</string>
+    <string name="health_fitness_sources">Uth et al., Eur J Appl Physiol 2004 · Kodama et al., JAMA 2009 (33 studi) · Mandsager et al., JAMA Netw Open 2018</string>
+
+    <string name="health_sec_limits">Cosa questa band non misura</string>
+    <string name="health_limits_note">Variabilità del battito (HRV), temperatura della pelle e frequenza del respiro non sono disponibili su questa band. Con questi dati si potrebbero stimare meglio il recupero e le malattie in arrivo.</string>
+
+    <string name="health_disclaimer">Questo report confronta le stime di un sensore da polso con i risultati di grandi studi. Non è un dispositivo medico e non fa diagnosi: per sintomi o dubbi parla con il medico.</string>
+    <string name="health_sources_title">Fonti</string>
+    <string name="health_sources_list">• Zhang et al., CMAJ 2016: https://www.cmaj.ca/content/cmaj/188/3/e53.full.pdf\n• Tanaka et al., JACC 2001: https://pubmed.ncbi.nlm.nih.gov/11153730/\n• Paluch et al., Lancet Public Health 2022: https://pubmed.ncbi.nlm.nih.gov/35247352/\n• Bull et al. (OMS), Br J Sports Med 2020: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7719906/\n• Ohayon et al., Sleep 2004: https://pubmed.ncbi.nlm.nih.gov/15586779/\n• Yuan et al., npj Digit Med 2024: https://pubmed.ncbi.nlm.nih.gov/38769347/\n• Kodama et al., JAMA 2009: https://doi.org/10.1001/jama.2009.681\n• Hirten et al., JMIR 2021: https://www.jmir.org/2021/2/e26107\n• Tudor-Locke et al., Br J Sports Med 2018 (sintesi): https://www.umass.edu/news/article/tudor-locke-examines-walking-cadence\n• Ekelund et al., Lancet 2016: https://pubmed.ncbi.nlm.nih.gov/27475271/\n• Diaz et al., Ann Intern Med 2017;167:465–475\n• Cappuccio et al., Sleep 2010: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864873/\n• Ohayon et al., Sleep Health 2017: https://escholarship.org/uc/item/qt9xc5x5h2\n• Windred et al., Sleep 2024: https://pubmed.ncbi.nlm.nih.gov/37738616/\n• Cole et al., N Engl J Med 1999: https://pubmed.ncbi.nlm.nih.gov/10536127/\n• Mandsager et al., JAMA Netw Open 2018: https://pmc.ncbi.nlm.nih.gov/articles/PMC6324439\n• O’Donovan et al., JAMA Intern Med 2017: https://doi.org/10.1001/jamainternmed.2016.8014</string>
+
+    <string name="health_chip_cadence">Passo</string>
+    <string name="health_chip_sleepq">Qualità</string>
+    <string name="health_chip_sedentary">Fermo</string>
+    <string name="health_chip_recovery">Recupero</string>
+
+    <string name="health_sec_priorities">Da dove partire</string>
+    <string name="health_adv_effort">Ti mancano circa %1$d minuti di sforzo moderato a settimana per arrivare a 150.</string>
+    <string name="health_adv_steps">Ti mancano circa %1$s passi al giorno per l’obiettivo della tua età.</string>
+    <string name="health_adv_sleep">Dormi in media %1$d minuti meno delle 7 ore consigliate.</string>
+    <string name="health_adv_sedentary">Interrompi le sedute lunghe: nello studio REGARDS il rischio era più basso per chi restava fermo a blocchi brevi.</string>
+    <string name="health_adv_resting">Il battito a riposo è sopra il tuo solito: dormi di più, riposa e osserva i prossimi giorni.</string>
+    <string name="health_adv_ok">Tutti gli indicatori misurati sono in linea. Continua così.</string>
+
+    <string name="health_effort_days">Giorni con almeno 10 minuti di sforzo: %1$d su 7</string>
+    <string name="health_effort_pattern" formatted="false">Anche concentrare lo sforzo in una o due sessioni a settimana va con una mortalità totale più bassa di circa il 30% rispetto a stare fermi (63.591 adulti).</string>
+
+    <string name="health_sec_cadence">Cadenza del passo</string>
+    <string name="health_cadence_line">Ultimi 7 giorni: %1$d min a 100–129 passi/min + %2$d min da 130 passi/min (contano doppio)</string>
+    <string name="health_cadence_note">Il passo misura quanto cammini forte senza usare il battito: circa 100 passi al minuto corrispondono a uno sforzo moderato e da circa 130 a uno intenso (revisione di 38 studi). Vale per la camminata di adulti sani: negli anziani i valori variano.</string>
+    <string name="health_cadence_sources">Tudor-Locke et al., Br J Sports Med 2018 (38 studi)</string>
+
+    <string name="health_sec_sedentary">Tempo da fermo</string>
+    <string name="health_sedentary_line">Da sveglio, con quasi nessun passo · blocchi fermi di %1$d min in media, il più lungo %2$d min</string>
+    <string name="health_sedentary_note">Nello studio REGARDS (7.985 adulti) il rischio di morte era più alto per chi stava fermo almeno 12,5 ore al giorno a blocchi di almeno 10 minuti. Un livello alto di attività fisica ha annullato il rischio legato a molte ore da seduti (analisi su oltre un milione di persone).</string>
+    <string name="health_sedentary_caution">La band conta i passi, non la postura: stare in piedi fermi risulta come stare seduti. È un’approssimazione di ciò che gli studi misurano con un accelerometro all’anca.</string>
+    <string name="health_sedentary_sources">Diaz et al., Ann Intern Med 2017 · Ekelund et al., Lancet 2016</string>
+
+    <string name="health_sec_sleepq">Qualità del sonno</string>
+    <string name="health_sleepq_value">%1$d%%</string>
+    <string name="health_sleepq_line">Efficienza: tempo addormentato sul tempo a letto · risvegli dopo l’addormentamento: %1$d min a notte</string>
+    <string name="health_sleepq_regularity">Regolarità degli orari: %1$d%% dei minuti nello stesso stato (sonno o veglia) di 24 ore prima</string>
+    <string name="health_sleepq_note" formatted="false">Il consenso della National Sleep Foundation considera buona un’efficienza dell’85% o più. La costanza degli orari conta quanto la durata: in 60.977 adulti, chi aveva gli orari più regolari aveva una mortalità tra il 20% e il 48% più bassa di chi li aveva meno regolari, e la regolarità spiegava la mortalità meglio della durata.</string>
+    <string name="health_sleepq_sources">Ohayon et al., Sleep Health 2017 · Windred et al., Sleep 2024</string>
+
+    <string name="health_sec_recovery">Recupero del battito</string>
+    <string name="health_recovery_line">Calo del battito nel primo minuto dopo l’ultimo sforzo intenso · soglia 12 bpm</string>
+    <string name="health_recovery_note">Un calo di 12 battiti al minuto o meno nel primo minuto dopo lo sforzo è un segnale sfavorevole: nello studio su 2.428 adulti seguiti per 6 anni il rischio di morte era il doppio. Qui è misurato dopo i tuoi allenamenti, senza la fase di raffreddamento controllata del test da sforzo: è indicativo.</string>
+    <string name="health_recovery_sources">Cole et al., N Engl J Med 1999</string>
+</resources>

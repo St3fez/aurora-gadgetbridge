@@ -176,7 +176,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:requestLegacyExternalStorage="true"
-        android:theme="@style/GadgetbridgeTheme">
+        android:theme="@style/GadgetbridgeThemeAurora">
         <activity
             android:name=".activities.ControlCenterv2"
             android:configChanges="keyboard|keyboardHidden|navigation"
@@ -842,6 +842,19 @@
             android:label="@string/menuitem_settings"
             android:parentActivityName=".activities.debug.DebugActivityV2"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".health.HealthReportActivity"
+            android:label="@string/health_title"
+            android:parentActivityName=".activities.ControlCenterv2" />
+        <activity
+            android:name=".band.BandWeatherActivity"
+            android:label="@string/band_weather_title"
+            android:parentActivityName=".activities.ControlCenterv2"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.ThemesActivity"
+            android:label="@string/themes_title"
+            android:parentActivityName=".activities.ControlCenterv2" />
         <activity
             android:name=".activities.AboutActivity"
             android:label="@string/about_activity_title"

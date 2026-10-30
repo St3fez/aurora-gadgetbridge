@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Screen background: three soft glows (violet top-left, cyan right, pink bottom-left) over ink -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/aurora_ink" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:centerX="0.0"
+                android:centerY="0.02"
+                android:endColor="#007C3AED"
+                android:gradientRadius="95%p"
+                android:startColor="#6B7C3AED"
+                android:type="radial" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:centerX="1.0"
+                android:centerY="0.46"
+                android:endColor="#0006B6D4"
+                android:gradientRadius="80%p"
+                android:startColor="#4506B6D4"
+                android:type="radial" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:centerX="0.05"
+                android:centerY="1.0"
+                android:endColor="#00EC4899"
+                android:gradientRadius="85%p"
+                android:startColor="#45EC4899"
+                android:type="radial" />
+        </shape>
+    </item>
+</layer-list>

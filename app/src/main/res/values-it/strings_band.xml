@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="band_weather_title">Temperatura esterna</string>
+    <string name="band_weather_help">Mostra la temperatura sul quadrante e nella schermata meteo della band. Scrivi la tua città: ogni 30 minuti il telefono chiede il meteo a Open-Meteo, e invia solo il nome della città e le sue coordinate. Lascia vuoto per spegnere.</string>
+    <string name="band_weather_city">Città</string>
+    <string name="band_weather_save">Salva e aggiorna</string>
+    <string name="band_weather_working">Aggiorno…</string>
+    <string name="band_weather_off">Meteo spento: nessuna città salvata</string>
+    <string name="band_weather_not_found">Città non trovata</string>
+    <string name="band_weather_failed">Aggiornamento non riuscito: %1$s</string>
+    <string name="band_weather_status">%1$s: %2$d °C, aggiornato alle %3$s</string>
+    <string name="band_weather_source">Dati: Open-Meteo.com</string>
+</resources>

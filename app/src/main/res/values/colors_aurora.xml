@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Aurora: ink-blue base lit by violet, cyan and pink glows; surfaces are translucent glass -->
+    <color name="aurora_ink">#0A0C1C</color>
+    <color name="aurora_ink_low">#0F1230</color>
+    <color name="aurora_ink_mid">#141839</color>
+    <color name="aurora_ink_high">#1B1F47</color>
+    <color name="aurora_ink_highest">#262B5A</color>
+
+    <color name="aurora_violet">#7C5CF0</color>
+    <color name="aurora_violet_container">#4D7C5CF0</color>
+    <color name="aurora_lilac">#C9BDFF</color>
+    <color name="aurora_cyan">#22D3EE</color>
+    <color name="aurora_pink">#F472B6</color>
+
+    <color name="aurora_text">#F3F4FF</color>
+    <color name="aurora_text_dim">#A9ACCB</color>
+    <color name="aurora_text_faint">#6E7194</color>
+
+    <color name="aurora_glass">#17FFFFFF</color>
+    <color name="aurora_glass_strong">#26FFFFFF</color>
+    <color name="aurora_glass_border">#30FFFFFF</color>
+    <color name="aurora_nav_fill">#E0141839</color>
+
+    <color name="aurora_chart_deep_sleep">#6366F1</color>
+    <color name="aurora_chart_light_sleep">#38BDF8</color>
+    <color name="aurora_chart_rem_sleep">#E879F9</color>
+    <color name="aurora_chart_awake_sleep">#FB7185</color>
+    <color name="aurora_chart_activity">#22D3EE</color>
+    <color name="aurora_chart_not_worn">#4A4E78</color>
+</resources>

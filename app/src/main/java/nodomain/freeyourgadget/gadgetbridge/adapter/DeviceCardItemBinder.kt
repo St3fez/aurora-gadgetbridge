@@ -7,6 +7,10 @@ import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import kotlin.math.roundToInt
+import nodomain.freeyourgadget.gadgetbridge.widgets.WidgetColors
+import androidx.core.graphics.ColorUtils
+import androidx.annotation.ColorInt
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.TooltipCompat
@@ -48,11 +52,13 @@ object DeviceCardItemBinder {
             moreItems.isEmpty() -> visibleItems.subList(0, moreIndex)
             else -> visibleItems.subList(0, moreIndex + 1)
         }
+        var actionIndex = 0
         for (i in rowItems.indices) {
             val view = container.getChildAt(i)
                 ?: LayoutInflater.from(context).inflate(R.layout.device_card_item, container, false)
                     .also { container.addView(it) }
-            bindItem(view, rowItems[i], device, context, hrSampleText, moreItems)
+            bindItem(view, rowItems[i], device, context, hrSampleText, moreItems, actionIndex)
+            if (rowItems[i] is ActionCardItem) actionIndex++
         }
         if (container.childCount > rowItems.size) {
             container.removeViews(rowItems.size, container.childCount - rowItems.size)
@@ -66,6 +72,7 @@ object DeviceCardItemBinder {
         context: Context,
         hrSampleText: String?,
         moreItems: List<DeviceCardItem>,
+        actionIndex: Int,
     ) {
         val icon = view.findViewById<ImageView>(R.id.card_item_icon)
         val label = view.findViewById<TextView>(R.id.card_item_label)
@@ -81,7 +88,7 @@ object DeviceCardItemBinder {
         )
 
         when (item) {
-            is ActionCardItem -> bindAction(view, icon, label, busy, item, device, context)
+            is ActionCardItem -> bindAction(view, icon, label, busy, item, device, context, actionIndex)
             is BatteryCardItem -> bindBattery(view, icon, label, item, device, context)
             is ColorCardItem -> bindColor(view, icon, label, item, device, context)
             is HeartRateCardItem -> bindHeartRate(view, icon, label, item, device, context, hrSampleText)
@@ -191,12 +198,12 @@ object DeviceCardItemBinder {
         item: ActionCardItem,
         device: GBDevice,
         context: Context,
+        actionIndex: Int,
     ) {
         val action = item.action
         icon.setImageResource(action.getIcon(device))
-        action.getIconTint(device, context)?.let {
-            ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(it))
-        }
+        val accent = action.getIconTint(device, context) ?: WidgetColors.accent(ACTION_HUES[actionIndex % ACTION_HUES.size])
+        styleIcon(icon, accent, tintGlyph = true)
         setDescription(view, action.getDescription(device, context))
         setLabel(label, action.getLabel(device, context))
         if (item.busyIndicator && device.isBusy) {
@@ -246,8 +253,46 @@ object DeviceCardItemBinder {
             icon.setImageLevel(300)
         }
 
+        styleIcon(icon, batteryAccent(batteryLevel, batteryState), tintGlyph = true)
         setOnClick(view, clickAction(item, device, context))
     }
+
+    /** Green while the battery is fine, amber when it runs low, rose when it is nearly empty, cyan while charging. */
+    private fun batteryAccent(level: Int, state: BatteryState?): Int = when {
+        state == BatteryState.BATTERY_CHARGING || state == BatteryState.BATTERY_CHARGING_FULL -> WidgetColors.accent(0)
+        level == GBDevice.BATTERY_UNKNOWN.toInt() -> WidgetColors.worn
+        level >= 50 -> WidgetColors.levelGood
+        level >= 20 -> WidgetColors.levelFair
+        else -> WidgetColors.levelAttention
+    }
+
+    /**
+     * Gives an icon of the card a bigger tile in its own color: a soft fill of the accent, a brighter outline, and the
+     * glyph in the full accent, so that the row reads at a glance instead of as small grey symbols.
+     */
+    private fun styleIcon(icon: ImageView, @ColorInt accent: Int, tintGlyph: Boolean) {
+        val density = icon.resources.displayMetrics.density
+        val size = (ICON_DP * density).roundToInt()
+        icon.layoutParams = icon.layoutParams.also {
+            it.width = size
+            it.height = size
+        }
+        val padding = (ICON_PADDING_DP * density).roundToInt()
+        icon.setPadding(padding, padding, padding, padding)
+        icon.background = GradientDrawable().apply {
+            cornerRadius = ICON_RADIUS_DP * density
+            setColor(ColorUtils.setAlphaComponent(accent, 48))
+            setStroke((1.5f * density).roundToInt(), ColorUtils.setAlphaComponent(accent, 150))
+        }
+        if (tintGlyph) ImageViewCompat.setImageTintList(icon, ColorStateList.valueOf(accent))
+    }
+
+    /** The hues of the actions in the order they appear: no green and no rose, which the battery uses for its levels. */
+    private val ACTION_HUES = intArrayOf(0, 1, 2, 3, 5, 6)
+
+    private const val ICON_DP = 54f
+    private const val ICON_PADDING_DP = 13f
+    private const val ICON_RADIUS_DP = 18f
 
     private fun bindColor(
         view: View,
@@ -261,6 +306,7 @@ object DeviceCardItemBinder {
         // The tint covers the fill color
         ImageViewCompat.setImageTintList(icon, null)
         (icon.drawable.mutate() as GradientDrawable).setColor(item.color(device))
+        styleIcon(icon, item.color(device), tintGlyph = false)
         setDescription(view, item.description(device, context))
         setLabel(label, null)
         setOnClick(view, clickAction(item, device, context))
@@ -276,6 +322,7 @@ object DeviceCardItemBinder {
         hrSampleText: String?,
     ) {
         icon.setImageResource(R.drawable.ic_heart)
+        styleIcon(icon, WidgetColors.exercise, tintGlyph = true)
         setDescription(view, context.getString(R.string.controlcenter_get_heartrate_measurement))
 
         // Live-only devices display the item only while a sample is available
@@ -296,6 +343,7 @@ object DeviceCardItemBinder {
         context: Context,
     ) {
         icon.setImageResource(R.drawable.ic_menu_open)
+        styleIcon(icon, WidgetColors.accent(1), tintGlyph = true)
         setDescription(view, context.getString(R.string.menuitem_more))
         setLabel(label, null)
         setOnClick(view) { showMoreDialog(moreItems, device, context) }

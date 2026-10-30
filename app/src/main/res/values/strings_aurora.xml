@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="themes_title">Themes</string>
+    <string name="themes_summary">Aurora, Neon Pulse</string>
+    <string name="themes_intro">Pick the look of the whole app. The change applies right away.</string>
+    <string name="theme_aurora_name">Aurora</string>
+    <string name="theme_aurora_desc">Frosted glass over slow violet, cyan and pink light.</string>
+    <string name="theme_neon_name">Neon Pulse</string>
+    <string name="theme_neon_desc">Pure black, big numbers and one electric lime accent.</string>
+    <string name="theme_active">In use</string>
+
+    <string name="widget_live_hr_title">Live heart rate</string>
+    <string name="widget_variant_live">Live</string>
+    <string name="live_hr_live">LIVE</string>
+    <string name="live_hr_waiting">WAITING</string>
+    <string name="live_hr_waiting_hint">Waiting for the first beat…</string>
+    <string name="live_hr_no_band">Band not connected</string>
+    <string name="live_hr_percent_max">%1$d%% of max</string>
+    <string name="live_hr_zone_0">Resting</string>
+    <string name="live_hr_zone_1">Warm-up</string>
+    <string name="live_hr_zone_2">Fat burn</string>
+    <string name="live_hr_zone_3">Aerobic</string>
+    <string name="live_hr_zone_4">Anaerobic</string>
+    <string name="live_hr_zone_5">Maximum</string>
+    <string name="live_hr_average">Average</string>
+    <string name="live_hr_trimp">Training load</string>
+    <string name="live_hr_vo2">VO2max</string>
+
+</resources>
